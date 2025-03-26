@@ -14,17 +14,17 @@ function App() {
 
   const viewClickedFile = (name) => {
     const file = Files.find((file) => file.name === name);
-    if (file) {
+    if (file){
       if (selectedFile.length > 0) {
+        console.log(URL.createObjectURL(selectedFile[0]))
         URL.revokeObjectURL(selectedFile[0]);
       }
       setSelectedFile([file]);
     }
   };
-  
 
   const closePreview = (name) => {
-    if (selectedFile.length>0 && selectedFile[0].name === name){
+    if (selectedFile.length > 0 && selectedFile[0].name === name) {
       setSelectedFile([]);
     }
   };
@@ -77,7 +77,7 @@ function App() {
                       className="w-12 h-12 rounded-md object-cover mr-3 inline"
                     />
                   )}
-                  {file.name.split(".")[0].slice(0,15)}{" "}
+                  {file.name.split(".")[0].slice(0, 15)}{" "}
                 </div>
                 <button
                   onClick={() => viewClickedFile(file.name)}
@@ -86,7 +86,7 @@ function App() {
                   view
                 </button>
                 <button
-                  onClick={()=>closePreview(file.name)}
+                  onClick={() => closePreview(file.name)}
                   className="cursor-pointer bg-red-500 text-white rounded-lg w-20 items-center h-8"
                 >
                   Close
@@ -112,12 +112,13 @@ function App() {
               className="h-150 w-150 border-0"
             ></iframe>
           )}
-        {selectedFile.length > 0 && selectedFile[0].type.startsWith("image/")  && (
-          <img
-            src={URL.createObjectURL(selectedFile[0])}
-            className="h-150 w-150 border-0"
-          ></img>
-        )}
+        {selectedFile.length > 0 &&
+          selectedFile[0].type.startsWith("image/") && (
+            <img
+              src={URL.createObjectURL(selectedFile[0])}
+              className="h-150 w-150 border-0"
+            ></img>
+          )}
         {selectedFile.length > 0 && selectedFile[0].type == "video/mp4" && (
           <video controls>
             <source
