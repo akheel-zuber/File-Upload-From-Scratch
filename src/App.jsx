@@ -69,7 +69,7 @@ function App() {
                 key={index}
                 className="flex flex-row  justify-between items-center rounded-lg p-3 m-2 border-1 border-gray-200"
               >
-                <div className="cursor-pointer">
+                <div className="cursor-pointer w-20">
                   {file.type.startsWith("image/") && (
                     <img
                       src={URL.createObjectURL(file)}
