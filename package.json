@@ -1,5 +1,5 @@
 {
-  "homepage": "http://akheel-zuber.github.io/File-Uploader-And-Viewer ",
+  "homepage": "https://akheel-zuber.github.io/upload-view-files/",
   "name": "upload",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
